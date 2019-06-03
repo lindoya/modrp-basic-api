@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+
+  db_modrp:
+    image: postgres:11.2-alpine
+    environment:
+      POSTGRES_PASSWORD: modrp
+      POSTGRES_DB: modrp
+    ports:
+      - 5412:5432
+    volumes:
+      - db_modrp:/var/lib/postgresql/data
+    
+volumes:
+  db_modrp:
