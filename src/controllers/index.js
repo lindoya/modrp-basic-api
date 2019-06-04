@@ -4,6 +4,7 @@ const domain = new Domain()
 
 const newRequest = async (req, res, next) => {
   try {
+    console.log(req.body)
     const response = await domain.newRequest(req.body)
 
     res.json(response)

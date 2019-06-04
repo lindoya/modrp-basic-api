@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "modrp",
+    "database": "modrp",
+    "host": "db_modrp",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "modrp",
+    "database": "modrp",
+    "host": "db_modrp",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "modrp",
+    "database": "modrp",
+    "host": "db_modrp",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}

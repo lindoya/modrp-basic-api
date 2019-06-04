@@ -59,7 +59,23 @@ module.exports = {
     percent: {
       type: Sequelize.STRING,
     },
+
+    createdAt: {
+      defaultValue: Sequelize.NOW,
+      type: Sequelize.DATE,
+    },
+
+    updatedAt: {
+      defaultValue: Sequelize.NOW,
+      type: Sequelize.DATE,
+    },
+
+    deletedAt: {
+      defaultValue: null,
+      type: Sequelize.DATE,
+    },
   }),
 
   down: queryInterface => queryInterface.dropTable('request'),
 }
+// npx sequelize-cli db:migrate src/database/migrations/20190602210140-requests.js
