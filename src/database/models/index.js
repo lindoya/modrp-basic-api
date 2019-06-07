@@ -59,6 +59,24 @@ module.exports = [(sequelize) => {
     percent: {
       type: Sequelize.STRING,
     },
+
+    actionPing: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+    },
+
+    actionPingSucess: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+    },
+
+    latencia: {
+      type: Sequelize.STRING,
+    },
+
+    pingsArray: {
+      type: Sequelize.STRING,
+    },
   })
   return request
 }]

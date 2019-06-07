@@ -1,4 +1,6 @@
 
+//  const ping = require('node-http-ping')
+
 const database = require('../database')
 
 const service = require('../services')
@@ -10,18 +12,18 @@ const Request = database.model('request')
 module.exports = class RequestDomain {
   async newRequest(bodyData) {
     const { ip = null, action = null } = bodyData
-
+ 
     if (!ip) {
       throw new FieldValidationError([{
         field: 'ip',
-        message: 'ip is inválid',
+        message: 'O ip informado está inválido.',
       }])
     }
 
     if (!action) {
       throw new FieldValidationError([{
         field: 'action',
-        message: 'action is inválid',
+        message: 'A ação informada está inválida.',
       }])
     }
 
@@ -38,6 +40,10 @@ module.exports = class RequestDomain {
       ping: '0',
       firmwareVersion: '0',
       percent: '0',
+      actionPing: false,
+      actionPingSucess: false,
+      latencia: '0',
+      pingsArray: '[]',
     }
 
     let response = null
@@ -62,16 +68,38 @@ module.exports = class RequestDomain {
     if (action === 'resetRelogio') {
       try {
         response = await service.resetRelogio(ip)
-
         newRequest.actionReset = true
 
-        if (response.success) {
+        if (response) {
           newRequest.actionResetSucess = true
         }
       } finally {
         // NOTHING
       }
     }
+
+    console.log(action)
+
+    if (action === 'ping') {
+      const pingArray = []
+      try {
+  //       ping('google.com', 80 /* optional */)
+  // .then(time => console.log(`Response time: ${time}ms`))
+  // .catch(() => console.log(`Failed to ping google.com`))
+        // // for (let index = 0; index <= 10; index += 1) {
+        //   ping('8.8.8.8')
+        //     .then((time) => {
+        //       console.log(time)
+        //     })
+        
+        // if (pingArray.length > 3) {
+        //   newRequest.actionPingSucess = true
+        // }
+      } finally {
+        // NOTHING
+      }
+    }
+
 
     const requestCreated = await Request.create(newRequest)
 
