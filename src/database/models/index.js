@@ -1,82 +1,11 @@
-const Sequelize = require('sequelize')
 
-module.exports = [(sequelize) => {
-  const request = sequelize.define('request', {
-    id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
-      primaryKey: true,
-    },
+// const ping = require('./ping')
+const request = require('./request')
+const status = require('./status')
+const ping = require('./ping')
 
-    ip: {
-      type: Sequelize.STRING,
-    },
-
-    actionReset: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    actionResetSucess: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    actionStatus: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    actionStatusSucess: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    tempoLigado: {
-      type: Sequelize.STRING,
-    },
-
-    tempoConectado: {
-      type: Sequelize.STRING,
-    },
-
-    tempoDesconectado: {
-      type: Sequelize.STRING,
-    },
-
-    quantasVezesTPLinkReiniciou: {
-      type: Sequelize.STRING,
-    },
-
-    ping: {
-      type: Sequelize.STRING,
-    },
-
-    firmwareVersion: {
-      type: Sequelize.STRING,
-    },
-
-    percent: {
-      type: Sequelize.STRING,
-    },
-
-    actionPing: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    actionPingSucess: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-
-    latencia: {
-      type: Sequelize.STRING,
-    },
-
-    pingsArray: {
-      type: Sequelize.STRING,
-    },
-  })
-  return request
-}]
+module.exports = [
+  ping,
+  request,
+  status,
+]
