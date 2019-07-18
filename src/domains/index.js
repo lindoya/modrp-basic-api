@@ -150,7 +150,13 @@ module.exports = class RequestDomain {
 
       try {
         response = await service.resetRelogio(ip)
-
+        if (response.data.Response === 'notSuported') {
+          throw new FieldValidationError([{
+            field: 'ip',
+            message: 'Não possui essa função.',
+          }])
+        }
+        console.log(response.data.Response)
         if (response) {
           newRequest.actionResetSucess = true
         }

@@ -48,7 +48,7 @@ const resetRelogio = async (IP) => {
   await axios.get(`http://${IP}:4560/resetRelogio`, { timeout: 25000 })
     .then((response) => {
       if (response.status === 200) {
-        success = true
+        success = response
       }
     })
     .catch(() => {
