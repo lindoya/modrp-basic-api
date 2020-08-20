@@ -16,7 +16,7 @@
     "@fnando/cpf": "^0.1.1",
     "add": "^2.0.6",
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
